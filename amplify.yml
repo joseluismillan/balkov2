@@ -12,7 +12,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - npm install -g babel
+        - npm install @babel/core @babel/cli
         - npm run build
   artifacts:
     baseDirectory: build
