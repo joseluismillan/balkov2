@@ -9,10 +9,10 @@ frontend:
   phases:
     preBuild:
       commands:
+        - npm install -g @babel/core @babel/cli
         - npm ci
     build:
       commands:
-        - npm install @babel/core @babel/cli
         - npm run build
   artifacts:
     baseDirectory: build
