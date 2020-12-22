@@ -1,0 +1,192 @@
+type SensorValue @aws_iam @aws_cognito_user_pools {
+  id: ID!
+  sensorId: String!
+  pH: Float!
+  temperature: Float!
+  salinity: Float!
+  disolvedO2: Float!
+  status: Int!
+  timestamp: AWSTimestamp!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type Subscription {
+  onCreateSensorValue(sensorId: String!): SensorValue @aws_subscribe(mutations: ["createSensorValue"])
+  onCreateSensorValues: SensorValue @aws_subscribe(mutations: ["createSensorValue"])
+}
+
+type Geo {
+  latitude: Float!
+  longitude: Float!
+}
+
+type Sensor {
+  sensorId: String!
+  name: String!
+  enabled: Boolean!
+  geo: Geo!
+  status: Int
+}
+
+type Query {
+  listSensors: [Sensor]
+  getSensor(sensorId: String!): Sensor
+  getSensorValue(id: ID!): SensorValue @aws_iam @aws_cognito_user_pools
+  listSensorValues(filter: ModelSensorValueFilterInput, limit: Int, nextToken: String): ModelSensorValueConnection @aws_iam @aws_cognito_user_pools
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelSensorValueConnection @aws_iam @aws_cognito_user_pools {
+  items: [SensorValue]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelSensorValueFilterInput {
+  id: ModelIDInput
+  sensorId: ModelStringInput
+  pH: ModelFloatInput
+  temperature: ModelFloatInput
+  salinity: ModelFloatInput
+  disolvedO2: ModelFloatInput
+  status: ModelIntInput
+  timestamp: ModelIntInput
+  and: [ModelSensorValueFilterInput]
+  or: [ModelSensorValueFilterInput]
+  not: ModelSensorValueFilterInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input CreateSensorValueInput {
+  id: ID
+  sensorId: String!
+  pH: Float!
+  temperature: Float!
+  salinity: Float!
+  disolvedO2: Float!
+  status: Int!
+  timestamp: AWSTimestamp!
+}
+
+input UpdateSensorValueInput {
+  id: ID!
+  sensorId: String
+  pH: Float
+  temperature: Float
+  salinity: Float
+  disolvedO2: Float
+  status: Int
+  timestamp: AWSTimestamp
+}
+
+input DeleteSensorValueInput {
+  id: ID
+}
+
+type Mutation {
+  createSensorValue(input: CreateSensorValueInput!, condition: ModelSensorValueConditionInput): SensorValue @aws_iam @aws_cognito_user_pools
+  updateSensorValue(input: UpdateSensorValueInput!, condition: ModelSensorValueConditionInput): SensorValue @aws_iam @aws_cognito_user_pools
+  deleteSensorValue(input: DeleteSensorValueInput!, condition: ModelSensorValueConditionInput): SensorValue @aws_iam @aws_cognito_user_pools
+}
+
+input ModelSensorValueConditionInput {
+  sensorId: ModelStringInput
+  pH: ModelFloatInput
+  temperature: ModelFloatInput
+  salinity: ModelFloatInput
+  disolvedO2: ModelFloatInput
+  status: ModelIntInput
+  timestamp: ModelIntInput
+  and: [ModelSensorValueConditionInput]
+  or: [ModelSensorValueConditionInput]
+  not: ModelSensorValueConditionInput
+}

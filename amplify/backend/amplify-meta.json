@@ -1,0 +1,173 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-iotdashboard-dev-132719-authRole",
+      "UnauthRoleArn": "arn:aws:iam::204741492020:role/amplify-iotdashboard-dev-132719-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::204741492020:role/amplify-iotdashboard-dev-132719-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-iotdashboard-dev-132719-deployment",
+      "UnauthRoleName": "amplify-iotdashboard-dev-132719-unauthRole",
+      "StackName": "amplify-iotdashboard-dev-132719",
+      "StackId": "arn:aws:cloudformation:us-east-1:204741492020:stack/amplify-iotdashboard-dev-132719/929e4ae0-4472-11eb-98fa-0e2d599e16c7",
+      "AmplifyAppId": "d3sspy6rqnnzgg"
+    }
+  },
+  "auth": {
+    "iotdashboardbce44907": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-iotdashboard-dev-132719-deployment/amplify-cfn-templates/auth/iotdashboardbce44907-cloudformation-template.yml",
+        "logicalId": "authiotdashboardbce44907"
+      },
+      "lastPushTimeStamp": "2020-12-22T16:36:09.130Z",
+      "output": {
+        "AppClientSecret": "q1u0qdrguurbrdevgjjrs0up46bhn9s7muo9m80jiept53hsc75",
+        "UserPoolId": "us-east-1_ShGCiUstB",
+        "AppClientIDWeb": "7rso807hvs9ju6cp1n2i776m7h",
+        "AppClientID": "173dc17uq4ttlaaq7ep20844qa",
+        "IdentityPoolId": "us-east-1:e7c0eb35-948e-4c93-a996-04816ab8d7c7",
+        "IdentityPoolName": "iotdashboardbce44907_identitypool_bce44907__dev",
+        "UserPoolName": "iotdashboardbce44907_userpool_bce44907"
+      },
+      "lastPushDirHash": "836CL8oexHEop1vKjBsF015fDlg="
+    }
+  },
+  "api": {
+    "iotdashboard": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authiotdashboardbce44907"
+            }
+          }
+        },
+        "GraphQLAPIIdOutput": "rbzijflkunarboxdb5lvcsgi2y",
+        "GraphQLAPIEndpointOutput": "https://r3mb5ljur5eqnkyho34cns6oey.appsync-api.us-east-1.amazonaws.com/graphql"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-iotdashboard-dev-132719-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiiotdashboard"
+      },
+      "lastPushTimeStamp": "2020-12-22T16:36:09.130Z",
+      "lastPushDirHash": "lChTLo5TsoCp42itF0/q5x7KK/k="
+    }
+  },
+  "function": {
+    "listsensors": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2020-12-22T16:29:00.725Z",
+      "lastPackageTimeStamp": "2020-12-22T16:29:00.840Z",
+      "distZipFilename": "listsensors-43336979365144337471-build.zip",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-iotdashboard-dev-132719-deployment/amplify-cfn-templates/function/listsensors-cloudformation-template.json",
+        "logicalId": "functionlistsensors"
+      },
+      "lastPushTimeStamp": "2020-12-22T16:36:09.130Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:204741492020:function:iotjumpstart-list-sensors-dev",
+        "Name": "iotjumpstart-list-sensors-dev",
+        "LambdaExecutionRole": "iotdashboardLambdaRolec220e1eb-dev"
+      },
+      "lastPushDirHash": "aY8qPVIt6B4XG5+gIQTvU1sfA8g="
+    },
+    "getsensor": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2020-12-22T16:29:00.730Z",
+      "lastPackageTimeStamp": "2020-12-22T16:29:00.861Z",
+      "distZipFilename": "getsensor-677a52503361656d7263-build.zip",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-iotdashboard-dev-132719-deployment/amplify-cfn-templates/function/getsensor-cloudformation-template.json",
+        "logicalId": "functiongetsensor"
+      },
+      "lastPushTimeStamp": "2020-12-22T16:36:09.130Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:204741492020:function:iotjumpstart-get-sensor-dev",
+        "Name": "iotjumpstart-get-sensor-dev",
+        "LambdaExecutionRole": "iotdashboardLambdaRolef8d2a1f2-dev"
+      },
+      "lastPushDirHash": "hFDxWkG8tR7w9y9cekTx4pY8J84="
+    },
+    "createsensorvalue": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "iotdashboard",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ]
+        }
+      ],
+      "lastBuildTimeStamp": "2020-12-22T16:29:00.733Z",
+      "lastPackageTimeStamp": "2020-12-22T16:29:00.876Z",
+      "distZipFilename": "createsensorvalue-4855372f6835345a6e43-build.zip",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-iotdashboard-dev-132719-deployment/amplify-cfn-templates/function/createsensorvalue-cloudformation-template.json",
+        "logicalId": "functioncreatesensorvalue"
+      },
+      "lastPushTimeStamp": "2020-12-22T16:36:09.130Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:204741492020:function:iotjumpstart-create-sensorvalue-dev",
+        "Name": "iotjumpstart-create-sensorvalue-dev",
+        "LambdaExecutionRole": "iotdashboardLambdaRolee6ac5f42-dev"
+      },
+      "lastPushDirHash": "BCJsPAWs4dTmkNT54JOY61aaSKc="
+    }
+  },
+  "iotrule": {
+    "createsensorvalue": {
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "createsensorvalue",
+          "attributes": [
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-iotdashboard-dev-132719-deployment/amplify-cfn-templates/iotrule/template.json",
+        "logicalId": "iotrulecreatesensorvalue"
+      },
+      "lastPushTimeStamp": "2020-12-22T16:36:09.130Z",
+      "output": {},
+      "lastPushDirHash": "79sUMZudPjhLlQE7paQPz+Jxxp4="
+    }
+  },
+  "iotanalytics": {
+    "batch": {
+      "service": "IotAnalytics",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-iotdashboard-dev-132719-deployment/amplify-cfn-templates/iotanalytics/template.json",
+        "logicalId": "iotanalyticsbatch"
+      },
+      "lastPushTimeStamp": "2020-12-22T16:36:09.130Z",
+      "output": {},
+      "lastPushDirHash": "Io3ubX/5qnZ3vWaUTxZCE9Kbsug="
+    }
+  }
+}

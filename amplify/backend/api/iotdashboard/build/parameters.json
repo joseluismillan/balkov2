@@ -1,0 +1,17 @@
+{
+    "CreateAPIKey": 0,
+    "AppSyncApiName": "iotdashboard",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authiotdashboardbce44907",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "S3DeploymentBucket": "amplify-iotdashboard-dev-132719-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/54555c72e43ab9c6f1b313d3f9524b504558628a"
+}

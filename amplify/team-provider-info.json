@@ -1,0 +1,25 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-iotdashboard-dev-132719-authRole",
+      "UnauthRoleArn": "arn:aws:iam::204741492020:role/amplify-iotdashboard-dev-132719-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::204741492020:role/amplify-iotdashboard-dev-132719-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-iotdashboard-dev-132719-deployment",
+      "UnauthRoleName": "amplify-iotdashboard-dev-132719-unauthRole",
+      "StackName": "amplify-iotdashboard-dev-132719",
+      "StackId": "arn:aws:cloudformation:us-east-1:204741492020:stack/amplify-iotdashboard-dev-132719/929e4ae0-4472-11eb-98fa-0e2d599e16c7",
+      "AmplifyAppId": "d3sspy6rqnnzgg"
+    },
+    "categories": {
+      "auth": {
+        "iotdashboardbce44907": {}
+      },
+      "function": {
+        "listsensors": {},
+        "getsensor": {},
+        "createsensorvalue": {}
+      }
+    }
+  }
+}
